@@ -1,0 +1,46 @@
+﻿<Window x:Class="CafeBillingSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeBillingSystem"
+        mc:Ignorable="d"
+        Title="Cafe Billing System" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Background="#FFB9B9B9">
+        <TextBox HorizontalAlignment="Left" Margin="591,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="207" IsEnabled="False" x:Name="ReceiptTextBox"/>
+        <GroupBox Header="Items in order" Margin="15,15,259,172">
+            <Grid>
+                <!-- Definiujemy dwie kolumny w siatce -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Tag="Drinks">
+                    <CheckBox Content="Latte" Click="CheckBox_Click" x:Name="LatteCheckBox"/>
+                    <CheckBox Content="Espresso" Click="CheckBox_Click" x:Name="EspressoCheckBox"/>
+                    <CheckBox Content="Mocha" Click="CheckBox_Click" x:Name="MochaCheckBox"/>
+                    <CheckBox Content="Cappucino" Click="CheckBox_Click" x:Name="CappucinoCheckBox"/>
+                    <CheckBox Content="Cold Coffee" Click="CheckBox_Click" x:Name="ColdCoffeeCheckBox"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Tag="Cakes">
+                    <CheckBox Content="Coffee Cake" Click="CheckBox_Click" x:Name="CoffeeCakeCheckBox"/>
+                    <CheckBox Content="Red Valvet Cake" Click="CheckBox_Click" x:Name="RedValvetCakeCheckBox"/>
+                    <CheckBox Content="Cheese Cake" Click="CheckBox_Click" x:Name="CheeseCakeCheckBox"/>
+                    <CheckBox Content="Rainbow Cake" Click="CheckBox_Click" x:Name="RainbowCakeCheckBox"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <Label Content="Cost of drinks:" HorizontalAlignment="Left" Margin="13,302,0,0" VerticalAlignment="Top" Width="127"/>
+        <Label Content="Cost of cakes:" HorizontalAlignment="Left" Margin="13,328,0,0" VerticalAlignment="Top" Width="127"/>
+        <Label Content="Service charge" HorizontalAlignment="Left" Margin="13,354,0,0" VerticalAlignment="Top" Width="127"/>
+        <TextBox HorizontalAlignment="Left" Margin="140,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" x:Name="CostOfDrinksTextBox"/>
+        <TextBox HorizontalAlignment="Left" Margin="140,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" x:Name="CostOfCakesTextBox"/>
+        <TextBox HorizontalAlignment="Left" Margin="140,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False" x:Name="ServiceChargeTextBox"/>
+        <Label Content="Total:" HorizontalAlignment="Left" Margin="310,325,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Margin="362,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" FontWeight="Bold" IsEnabled="False" x:Name="TotalTextBox"/>
+        <Label Content="Receipt&#xD;&#xA;" HorizontalAlignment="Left" Margin="591,75,0,0" VerticalAlignment="Top"/>
+        <Button Content="Reset" HorizontalAlignment="Left" Margin="649,313,0,0" VerticalAlignment="Top" Click="Button_Click" Width="45"/>
+        <Button Content="Exit" HorizontalAlignment="Left" Margin="649,338,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="45"/>
+
+    </Grid>
+</Window>
