@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace CafeBillingSystem
 {
@@ -30,10 +31,17 @@ namespace CafeBillingSystem
         };
 
         private List<ItemFromMenu> orderItems = new List<ItemFromMenu>();
+        private DispatcherTimer timeCount;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            timeCount = new DispatcherTimer();
+            timeCount.Interval = TimeSpan.FromSeconds(1);
+            timeCount.Tick += TimerCount;
+            timeCount.Start();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -139,5 +147,20 @@ namespace CafeBillingSystem
 
             return parent as StackPanel;
         }
+
+        private void ReceiptTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void DateTimeBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+        }
+        private void TimerCount(object sender, EventArgs e)
+        {
+            DateTimeBox.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+
     }
 }
