@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Printing;
 
 namespace CafeBillingSystem
 {
@@ -160,6 +161,32 @@ namespace CafeBillingSystem
         private void TimerCount(object sender, EventArgs e)
         {
             DateTimeBox.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if(printDialog.ShowDialog() == true)
+            {
+                FlowDocument document = new FlowDocument();
+                Paragraph paragraph = new Paragraph();
+                paragraph.Inlines.Add(new Run($"Current time: {DateTimeBox.Text}\n"));
+                paragraph.Inlines.Add(new Run($"Your receipt:\n"));
+                paragraph.Inlines.Add(new Run(ReceiptTextBox.Text));
+                paragraph.Inlines.Add(new Run($"\nTotal price:\n{TotalTextBox.Text}"));
+                document.Blocks.Add(paragraph);
+
+                // Ustawienie dla drukowania w trybie na całą stronę
+                document.PageHeight = printDialog.PrintableAreaHeight;
+                document.PageWidth = printDialog.PrintableAreaWidth;
+                document.PagePadding = new Thickness(50);
+                document.ColumnGap = 0;
+                document.ColumnWidth = printDialog.PrintableAreaWidth;
+
+                // Wydrukowanie dokumentu
+                printDialog.PrintDocument(((IDocumentPaginatorSource)document).DocumentPaginator, "Receipt printing"); ;
+
+            }
+
         }
 
     }

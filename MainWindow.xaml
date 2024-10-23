@@ -43,7 +43,7 @@
         <Button Content="Reset" HorizontalAlignment="Left" Margin="649,313,0,0" VerticalAlignment="Top" Click="Button_Click" Width="45"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="649,338,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="45"/>
         <Label Content="Date and Time:" HorizontalAlignment="Left" Margin="591,23,0,0" VerticalAlignment="Top"/>
-
+        <Button Content="Print" HorizontalAlignment="Left" Margin="715,356,0,0" VerticalAlignment="Top" Click="PrintButton_Click" Width="45"/>
 
     </Grid>
 </Window>
