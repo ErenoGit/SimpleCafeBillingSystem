@@ -86,8 +86,8 @@ namespace CafeBillingSystem
                     costOfCakes += orderItem.Price;
             }
 
-            serviceCharge = (costOfDrinks + costOfCakes) * 0.05m;
-            total = costOfDrinks + costOfCakes + serviceCharge;
+            serviceCharge = Decimal.Round(((costOfDrinks + costOfCakes) * 0.05m),2);
+            total = Decimal.Round((costOfDrinks + costOfCakes + serviceCharge), 2);
 
             CostOfDrinksTextBox.Text = costOfDrinks.ToString();
             CostOfCakesTextBox.Text = costOfCakes.ToString();
@@ -103,7 +103,7 @@ namespace CafeBillingSystem
                 + Environment.NewLine;
 
             foreach (var orderItem in orderItems)
-                textInReceipt += $"{orderItem.Name} | 1 | {orderItem.Price}" + Environment.NewLine;
+                textInReceipt += $"{orderItem.Name} | 1 | {Decimal.Round(orderItem.Price, 2)}" + Environment.NewLine;
 
             ReceiptTextBox.Text = textInReceipt;
         }
