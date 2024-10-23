@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="Cafe Billing System" Height="450" Width="800" ResizeMode="NoResize">
     <Grid Background="#FFB9B9B9">
-        <TextBox HorizontalAlignment="Left" Margin="591,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="207" IsEnabled="False" x:Name="ReceiptTextBox"/>
+        <TextBox HorizontalAlignment="Left" Margin="591,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" Height="207" IsEnabled="False" x:Name="ReceiptTextBox" TextChanged="ReceiptTextBox_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Margin="592,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="21" IsEnabled="False" x:Name="DateTimeBox" TextChanged="DateTimeBox_TextChanged"/>
         <GroupBox Header="Items in order" Margin="15,15,259,172">
             <Grid>
                 <!-- Definiujemy dwie kolumny w siatce -->
@@ -41,6 +42,8 @@
         <Label Content="Receipt&#xD;&#xA;" HorizontalAlignment="Left" Margin="591,75,0,0" VerticalAlignment="Top"/>
         <Button Content="Reset" HorizontalAlignment="Left" Margin="649,313,0,0" VerticalAlignment="Top" Click="Button_Click" Width="45"/>
         <Button Content="Exit" HorizontalAlignment="Left" Margin="649,338,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="45"/>
+        <Label Content="Date and Time:" HorizontalAlignment="Left" Margin="591,23,0,0" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Window>
